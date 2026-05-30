@@ -45,7 +45,10 @@
       background: var(--cream);
       color: var(--text);
       overflow-x: hidden;
+      overflow-y: auto;
       cursor: none;
+      width: 100%;
+      max-width: 100%;
     }
 
     .cursor {
@@ -214,6 +217,11 @@
       gap: 6px;
       margin-left: 12px;
     }
+    @media(max-width:960px) {
+      .lang-btns {
+        display: none;
+      }
+    }
     .lang-btn {
       background: transparent;
       border: 1px solid rgba(255, 255, 255, .4);
@@ -259,20 +267,58 @@
       position: fixed;
       top: 0;
       right: -100%;
-      width: min(85vw, 380px);
+      width: 100%;
+      max-width: 380px;
       height: 100vh;
       background: var(--cream);
       z-index: 99;
-      padding: 90px 28px 36px;
-      transition: .4s cubic-bezier(.4, 0, .2, 1);
+      padding: 30px 28px 36px;
+      transition: right .4s cubic-bezier(.4, 0, .2, 1);
       box-shadow: -8px 0 40px rgba(0, 0, 0, .18);
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       overflow-y: auto;
+      overflow-x: hidden;
     }
     .mobile-menu.open {
       right: 0;
+    }
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(200, 148, 62, .15);
+    }
+    .mobile-menu-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: .06em;
+    }
+    .mobile-menu-logo em {
+      color: var(--gold);
+      font-style: normal;
+    }
+    .mobile-menu-close {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(200, 148, 62, .1);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: var(--trans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mobile-menu-close:active {
+      background: rgba(200, 148, 62, .2);
     }
     .mobile-menu a {
       display: block;
@@ -281,22 +327,30 @@
       font-size: 1.05rem;
       font-weight: 500;
       letter-spacing: .06em;
-      padding: 16px 20px;
+      padding: 14px 18px;
       border-radius: var(--radius);
       transition: var(--trans);
+      margin-bottom: 2px;
     }
-    .mobile-menu a:hover {
-      background: rgba(200, 148, 62, .08);
+    .mobile-menu a:hover,
+    .mobile-menu a:active {
+      background: rgba(200, 148, 62, .12);
       color: var(--gold);
+    }
+    .mobile-menu a[style*="color:var(--gold)"] {
+      background: rgba(200, 148, 62, .08);
+      margin-top: 8px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(200, 148, 62, .1);
     }
     .mob-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .5);
+      background: rgba(0, 0, 0, .6);
       z-index: 98;
       opacity: 0;
       pointer-events: none;
-      transition: .3s;
+      transition: opacity .3s ease;
     }
     .mob-overlay.active {
       opacity: 1;
@@ -1456,6 +1510,11 @@
       }
     }
     @media(max-width:600px) {
+      body, html {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
       .nav {
         padding: 14px 18px;
       }
@@ -1534,6 +1593,10 @@
 
   <div class="mob-overlay" id="mobOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">Afzal <em>Sergeli</em></div>
+      <button type="button" class="mobile-menu-close" id="mobileMenuClose">✕</button>
+    </div>
     <a href="#about" data-i18n="nav_about">О нас</a>
     <a href="#menu" data-i18n="nav_menu">Меню</a>
     <a href="#contact" data-i18n="nav_contact">Контакты</a>
@@ -2085,8 +2148,10 @@
       const ham = document.getElementById('hamburger');
       const mob = document.getElementById('mobileMenu');
       const ov = document.getElementById('mobOverlay');
+      const mobClose = document.getElementById('mobileMenuClose');
       ham.addEventListener('click',()=>{ mob.classList.toggle('open'); ov.classList.toggle('active'); });
       ov.addEventListener('click',()=>{ mob.classList.remove('open'); ov.classList.remove('active'); });
+      mobClose.addEventListener('click',()=>{ mob.classList.remove('open'); ov.classList.remove('active'); });
       mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ mob.classList.remove('open'); ov.classList.remove('active'); }));
 
       document.getElementById('menuTabs').addEventListener('click',e=>{
