@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="gold">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Afzal Sergeli — Milliy taomlar restorani | Ташкент</title>
+    <meta name="description" id="pageDescription" content="Afzal Sergeli — ресторан национальной узбекской кухни. Бронирование столиков онлайн. Согдиана, 4.">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <style>
+        :root {
+            --gold: #c8943e;
+            --gold-light: #e0b960;
+            --gold-dark: #9a6f2a;
+            --cream: #fef9f2;
+            --warm: #faf3e6;
+            --card: #ffffff;
+            --text: #1e1810;
+            --text2: #5c4d3c;
+            --text3: #8b7b68;
+            --border: #e8ddd0;
+            --green-dark: #1a3022;
+            --radius: 14px;
+            --radius-lg: 24px;
+            --nav-h: 70px;
+            --shadow-card: 0 14px 36px rgba(30, 24, 16, .08);
+            --shadow-hover: 0 18px 40px rgba(30, 24, 16, .12);
+            --transition: .28s cubic-bezier(.4, 0, .2, 1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at top, #fef9f0 0%, #f5e6d9 45%, #efe0d2 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, .85);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(200, 148, 62, .8);
+            border-radius: 20px;
+        }
+        ::selection {
+            background: rgba(200, 148, 62, .22);
+            color: var(--text);
+        }
+        img,
+        svg {
+            max-width: 100%;
+            display: block;
+        }
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        /* ── NAV ────────────────────────── */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: var(--nav-h);
+            transition: var(--transition);
+            background: transparent;
+        }
+        .nav.scrolled {
+            background: rgba(254, 249, 242, .95);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 16px 46px rgba(0, 0, 0, .08);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, .28);
+            transition: var(--transition);
+        }
+        .nav.scrolled .nav-logo {
+            color: var(--text);
+            text-shadow: none;
+        }
+        .nav-logo span {
+            color: var(--gold-light);
+            transition: var(--transition);
+        }
+        .nav.scrolled .nav-logo span {
+            color: var(--gold);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, .92);
+            font-weight: 600;
+            font-size: .92rem;
+            padding: 10px 16px;
+            border-radius: 999px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, .18);
+        }
+        .nav.scrolled .nav-links a {
+            color: var(--text2);
+        }
+        .nav.scrolled .nav-links a:hover {
+            background: rgba(200, 148, 62, .12);
+            color: var(--gold-dark);
+        }
+        .nav-cta {
+            background: var(--gold) !important;
+            color: #fff !important;
+            font-weight: 700 !important;
+            padding: 10px 22px !important;
+            box-shadow: 0 12px 32px rgba(200, 148, 62, .22);
+        }
+        .lang-toggle {
+            display: flex;
+            gap: 6px;
+            margin-left: auto;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, .6);
+            color: #fff;
+            font-weight: 700;
+            font-size: .78rem;
+            padding: 7px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .nav.scrolled .lang-btn {
+            color: var(--text2);
+            border-color: var(--border);
+        }
+        .lang-btn.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #fff !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 101;
+            padding: 8px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 20px;
+            transition: .3s;
+        }
+        .nav.scrolled .hamburger span {
+            background: var(--text);
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(82vw, 360px);
+            height: 100vh;
+            background: var(--cream);
+            z-index: 99;
+            padding: 100px 28px 36px;
+            transition: .35s;
+            box-shadow: -6px 0 36px rgba(0, 0, 0, .16);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+        }
+        .mobile-menu.open {
+            right: 0;
+        }
+        .mobile-menu a {
+            display: block;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        .mobile-menu a:hover {
+            background: rgba(200, 148, 62, .08);
+        }
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+            z-index: 98;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+        }
+        .mobile-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ── HERO ──────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1e1810;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: -10%;
+            background: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1400&q=80') center/cover;
+            filter: brightness(.35) saturate(1.1);
+            animation: slowZoom 18s infinite alternate;
+        }
+        @keyframes slowZoom {
+            from {
+                transform: scale(1)
+            }
+            to {
+                transform: scale(1.06)
+            }
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 35% 50%, rgba(200, 148, 62, .24) 0%, transparent 55%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px 22px;
+            max-width: 720px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .18);
+            padding: 10px 20px;
+            border-radius: 999px;
+            color: rgba(255, 255, 255, .88);
+            font-size: .85rem;
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
+            animation: fadeInDown .6s ease-out;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 12px rgba(74, 222, 128, .6);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                box-shadow: 0 0 6px rgba(74, 222, 128, .4)
+            }
+            50% {
+                box-shadow: 0 0 18px rgba(74, 222, 128, .8)
+            }
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.03;
+            margin-bottom: 16px;
+            animation: fadeInUp .7s ease-out;
+        }
+        .hero h1 .gold {
+            color: var(--gold-light);
+        }
+        .hero-subtitle {
+            font-size: clamp(.96rem, 1.4vw, 1.15rem);
+            color: rgba(255, 255, 255, .78);
+            margin-bottom: 34px;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp .8s ease-out;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            animation: fadeInUp .9s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(26px)
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-14px)
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            white-space: nowrap;
+            border: none;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--gold);
+            color: #fff;
+            box-shadow: 0 14px 36px rgba(200, 148, 62, .25);
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 42px rgba(200, 148, 62, .28);
+        }
+        .btn-outline {
+            background: rgba(255, 255, 255, .14);
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .35);
+        }
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, .24);
+        }
+
+        /* ── SECTIONS ──────────────────── */
+        .section {
+            padding: 72px 20px;
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-label {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.9rem, 3.5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.05;
+        }
+        .section-subtitle {
+            color: var(--text3);
+            font-size: .97rem;
+            margin-top: 12px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .divider {
+            width: 52px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 999px;
+            margin: 18px auto 0;
+        }
+
+        /* ── ABOUT ─────────────────────── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+        .about-card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .about-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        .about-icon {
+            font-size: 1.9rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .about-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+        .about-card p {
+            font-size: .84rem;
+            color: var(--text3);
+            line-height: 1.5;
+        }
+
+        /* ── MENU ──────────────────────── */
+        .menu-wrap {
+            background: var(--warm);
+            padding: 64px 20px 88px;
+            border-radius: 38px 38px 0 0;
+        }
+        .menu-tabs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 34px;
+            scrollbar-width: none;
+            mask-image: linear-gradient(to right, #000 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, #000 92%, transparent 100%);
+        }
+        .menu-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        .menu-tab {
+            flex-shrink: 0;
+            padding: 12px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: .9rem;
+            cursor: pointer;
+            border: 1.5px solid var(--border);
+            background: var(--card);
+            color: var(--text2);
+            white-space: nowrap;
+            transition: var(--transition);
+            scroll-snap-align: start;
+        }
+        .menu-tab:hover {
+            transform: translateY(-1px);
+            border-color: var(--gold-light);
+        }
+        .menu-tab.active {
+            background: var(--gold);
+            color: #fff;
+            border-color: var(--gold);
+            box-shadow: 0 12px 28px rgba(200, 148, 62, .18);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .menu-cat {
+            display: none;
+        }
+        .menu-cat.active {
+            display: grid;
+        }
+        .menu-item {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid transparent;
+            transition: var(--transition);
+            animation: fadeInUp .45s ease-out both;
+        }
+        .menu-item:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border);
+        }
+        .menu-item-info {
+            display: grid;
+            gap: 6px;
+            flex: 1;
+            min-width: 0;
+        }
+        .menu-item-name {
+            font-weight: 700;
+            font-size: .96rem;
+        }
+        .menu-item-desc {
+            color: var(--text3);
+            font-size: .82rem;
+            line-height: 1.4;
+        }
+        .menu-item-price {
+            font-weight: 700;
+            font-size: .86rem;
+            color: var(--gold-dark);
+            white-space: nowrap;
+            text-align: right;
+            line-height: 1.4;
+        }
+        .menu-item-price small {
+            font-weight: 400;
+            font-size: .7rem;
+            color: var(--text3);
+        }
+
+        /* ── CONTACT ───────────────────── */
+        .info-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+        }
+        .info-item {
+            display: flex;
+            gap: 14px;
+            padding: 16px;
+            align-items: flex-start;
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, .95);
+            box-shadow: 0 10px 30px rgba(30, 24, 16, .04);
+        }
+        .info-icon {
+            font-size: 1.55rem;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--warm);
+            border-radius: 50%;
+        }
+        .info-item h4 {
+            margin-bottom: 4px;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--text3);
+        }
+        .info-item p,
+        .info-item a {
+            font-size: .86rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .info-item a:hover {
+            color: var(--gold-dark);
+            text-decoration: underline;
+        }
+
+        /* ── REVIEWS ───────────────────── */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .review-card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .review-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+        .review-card.featured {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(135deg, #fffefb 0%, #fef9f2 100%);
+        }
+        .review-stars {
+            font-size: 1rem;
+            color: #f59e0b;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+        .review-text {
+            font-size: .86rem;
+            color: var(--text2);
+            line-height: 1.55;
+            flex: 1;
+        }
+        .review-author {
+            margin-top: 4px;
+            font-weight: 700;
+            font-size: .8rem;
+            color: var(--text2);
+        }
+        .review-date {
+            font-size: .7rem;
+            color: var(--text3);
+            margin-top: -4px;
+        }
+
+        /* ── GALLERY ───────────────────── */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .gallery-img {
+            aspect-ratio: 1;
+            border-radius: var(--radius);
+            object-fit: cover;
+            width: 100%;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            background: #e8ddd0;
+        }
+        .gallery-img:hover {
+            transform: scale(1.04);
+            box-shadow: var(--shadow-hover);
+            z-index: 2;
+        }
+
+        /* ── RESERVATION ───────────────── */
+        .reservation-section {
+            background: linear-gradient(180deg, #fffaf1 0%, #f9efe3 100%);
+            border-top: 1px solid rgba(200, 148, 62, .18);
+        }
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 28px;
+            align-items: start;
+        }
+        .reservation-card {
+            background: var(--card);
+            border-radius: 30px;
+            padding: 34px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border);
+        }
+        .reservation-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .reservation-card p {
+            color: var(--text3);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: .9rem;
+        }
+        .reservation-list {
+            display: grid;
+            gap: 12px;
+            padding-left: 18px;
+            color: var(--text2);
+            list-style: none;
+        }
+        .reservation-list li {
+            position: relative;
+            padding-left: 14px;
+            line-height: 1.75;
+            font-size: .85rem;
+        }
+        .reservation-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--gold);
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+        .reservation-form {
+            display: grid;
+            gap: 18px;
+        }
+        .form-group {
+            display: grid;
+            gap: 8px;
+        }
+        .form-group label {
+            display: block;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--text2);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid transparent;
+            border-radius: 18px;
+            background: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text);
+            transition: .22s ease;
+            box-shadow: inset 0 1px 3px rgba(30, 24, 16, .06);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(200, 148, 62, .12);
+        }
+        .date-field-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+        }
+        .calendar-btn {
+            border: none;
+            background: var(--gold);
+            color: #fff;
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: .22s ease;
+        }
+        .calendar-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 24px rgba(200, 148, 62, .2);
+        }
+        .hidden-date {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .date-hint {
+            font-size: .88rem;
+            color: var(--text3);
+            margin-top: 4px;
+            min-height: 20px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--gold);
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: .28s ease;
+            font-family: inherit;
+            box-shadow: 0 8px 24px rgba(200, 148, 62, .2);
+        }
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 30px rgba(200, 148, 62, .28);
+        }
+        .form-status {
+            min-height: 48px;
+            margin-top: 4px;
+            font-size: .95rem;
+            line-height: 1.5;
+        }
+        .success-msg,
+        .error-msg {
+            display: none;
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 999px;
+            font-size: .95rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+        .success-msg.active {
+            display: block;
+            background: rgba(42, 142, 80, .14);
+            color: #17582b;
+        }
+        .error-msg.active {
+            display: block;
+            background: rgba(194, 57, 57, .12);
+            color: #7a1f1f;
+        }
+        .error-message {
+            margin-top: 6px;
+            font-size: .83rem;
+            color: #b03c3c;
+            min-height: 18px;
+        }
+        .field-error {
+            border-color: #d26969 !important;
+            background: rgba(210, 105, 105, .06);
+        }
+        .field-valid {
+            border-color: #65a56d !important;
+        }
+
+        /* ── FOOTER ────────────────────── */
+        .footer {
+            background: var(--green-dark);
+            color: rgba(255, 255, 255, .78);
+            padding: 48px 20px 32px;
+            border-radius: 38px 38px 0 0;
+        }
+        .footer-inner {
+            max-width: 1160px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 28px;
+        }
+        .footer h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer p,
+        .footer a {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            line-height: 1.7;
+        }
+        .footer a:hover {
+            color: var(--gold-light);
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            max-width: 1160px;
+            margin: 28px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            text-align: center;
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .4);
+        }
+
+        /* ── RESPONSIVE ────────────────── */
+        @media (max-width: 860px) {
+            .nav-links {
+                display: none
+            }
+            .hamburger {
+                display: flex
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+            .menu-grid {
+                grid-template-columns: 1fr
+            }
+            .reservation-grid {
+                grid-template-columns: 1fr
+            }
+            .hero h1 {
+                font-size: clamp(2rem, 7vw, 3.5rem)
+            }
+        }
+        @media (max-width: 680px) {
+            .section {
+                padding: 58px 18px;
+            }
+            .reservation-section {
+                padding: 54px 18px;
+            }
+            .reservation-card {
+                padding: 24px;
+            }
+            .date-field-wrap {
+                grid-template-columns: 1fr;
+            }
+            .calendar-btn {
+                width: 100%;
+            }
+            .info-bar {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                gap: 6px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">Afzal <span>Sergeli</span></a>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav_about">О нас</a></li>
+                <li><a href="#menu" data-i18n="nav_menu">Меню</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Контакты</a></li>
+                <li><a href="#reviews" data-i18n="nav_reviews">Отзывы</a></li>
+                <li><a href="#gallery" data-i18n="nav_gallery">Галерея</a></li>
+                <li><a href="#reservation" class="nav-cta" id="reserveBtn" data-i18n="nav_reserve">Забронировать</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="uz">UZ</button>
+            </div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" data-i18n="nav_about">О нас</a>
+        <a href="#menu" data-i18n="nav_menu">Меню</a>
+        <a href="#contact" data-i18n="nav_contact">Контакты</a>
+        <a href="#reviews" data-i18n="nav_reviews">Отзывы</a>
+        <a href="#gallery" data-i18n="nav_gallery">Галерея</a>
+        <a href="#reservation" id="mobReserveBtn" data-i18n="nav_reserve">Забронировать</a>
+    </div>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><span class="dot"></span> <span data-i18n="hero_open">Ochiq · Закрывается 23:30</span></div>
+            <h1 data-i18n="hero_title">Ta'mi an'analar<br>в сердце <span class="gold">Ташкента</span></h1>
+            <p class="hero-subtitle" data-i18n="hero_sub">Milliy o'zbek taomlari jon bilan tayyorlanadi. Семейные рецепты, свежие продукты и настоящее узбекское гостеприимство — mehmondo'stlik an'anasi.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary" data-i18n="hero_menu">🍖 Menyu / Меню</a>
+                <a href="https://maps.google.com/?q=Sogdiana+4+Tashkent+Uzbekistan" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="hero_route">📍 Yo'l ochish / Маршрут</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <span class="section-label" data-i18n="about_label">Biz haqimizda / О ресторане</span>
+            <h2 class="section-title" data-i18n="about_title">Добро пожаловать в Afzal Sergeli</h2>
+            <p class="section-subtitle" data-i18n="about_sub">Место, где традиции встречаются с комфортом — har bir mehmon oilamizning bir qismiga aylanadi.</p>
+            <div class="divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <span class="about-icon">🥘</span>
+                <h3 data-i18n="about_card1_title">Milliy taomlar</h3>
+                <p data-i18n="about_card1_text">Богатый выбор традиционных узбекских блюд — an'anaviy retseptlar asosida tayyorlanadi.</p>
+            </div>
+            <div class="about-card">
+                <span class="about-icon">👨‍👩‍👧‍👦</span>
+                <h3 data-i18n="about_card2_title">Butun oila uchun</h3>
+                <p data-i18n="about_card2_text">Уютная атмосфера, детская игровая зона — bolalar maydonchasi mavjud.</p>
+            </div>
+            <div class="about-card">
+                <span class="about-icon">🔥</span>
+                <h3 data-i18n="about_card3_title">Olovda pishirilgan</h3>
+                <p data-i18n="about_card3_text">Сочные шашлыки и гриль-блюда на открытом огне — ochiq olovda tayyorlanadi.</p>
+            </div>
+            <div class="about-card">
+                <span class="about-icon">⭐</span>
+                <h3 data-i18n="about_card4_title">Reyting 4.0</h3>
+                <p data-i18n="about_card4_text">Основано на 11 отзывах наших дорогих гостей — har bir fikr biz uchun qadrli!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ MENU ═══════════════ -->
+    <div class="menu-wrap" id="menu">
+        <div class="section">
+            <div class="section-header">
+                <span class="section-label" data-i18n="menu_label">Menyu / Меню</span>
+                <h2 class="section-title" data-i18n="menu_title">Блюда от шеф-повара</h2>
+                <p class="section-subtitle" data-i18n="menu_subtitle">Каждое блюдо — история вкуса, рассказанная с любовью к узбекской кухне.</p>
+                <div class="divider"></div>
+            </div>
+            <div class="menu-tabs" id="menuTabs">
+                <button class="menu-tab active" data-cat="first" data-i18n="tab_first">🍜 Первые блюда</button>
+                <button class="menu-tab" data-cat="second" data-i18n="tab_second">🍖 Вторые блюда</button>
+                <button class="menu-tab" data-cat="plov" data-i18n="tab_plov">🍚 Плов & Особые</button>
+                <button class="menu-tab" data-cat="grill" data-i18n="tab_grill">🔥 Шашлыки / Гриль</button>
+                <button class="menu-tab" data-cat="national" data-i18n="tab_national">🏺 Национальные</button>
+                <button class="menu-tab" data-cat="bakery" data-i18n="tab_bakery">🥟 Выпечка / Сомса</button>
+            </div>
+            <!-- Категория: Первые блюда -->
+            <div class="menu-cat active" id="cat-first"><div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_mastava_name">Мастава / Mastava</span><span class="menu-item-desc" data-i18n="menu_item_mastava_desc">Сытный суп с рисом и овощами</span></div><span class="menu-item-price">36 000 – 40 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_lagmon_name">Лағмон / Lag'mon</span><span class="menu-item-desc" data-i18n="menu_item_lagmon_desc">Домашняя лапша с насыщенным бульоном</span></div><span class="menu-item-price">45 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_mampar_name">Мампар / Mampar</span><span class="menu-item-desc" data-i18n="menu_item_mampar_desc">Традиционный суп с клёцками</span></div><span class="menu-item-price">40 000 – 43 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kaynatma_name">Қайнатма шўрва</span><span class="menu-item-desc" data-i18n="menu_item_kaynatma_desc">Наваристый бульон Қўй / Мол</span></div><span class="menu-item-price">40 000 – 45 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_chuchvara_name">Чучвара / Chuchvara</span><span class="menu-item-desc" data-i18n="menu_item_chuchvara_desc">Пельмени в ароматном бульоне</span></div><span class="menu-item-price">35 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_teftel_name">Тефтель шўрва</span><span class="menu-item-desc" data-i18n="menu_item_teftel_desc">Суп с нежными фрикадельками</span></div><span class="menu-item-price">35 000 <small>so'm</small></span></div>
+            </div></div>
+            <!-- Категория: Вторые блюда -->
+            <div class="menu-cat" id="cat-second"><div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_dumgaza_name">Думгаза / Dumgaza</span></div><span class="menu-item-price" data-i18n="menu_item_dumgaza_price">1 порц. 86 000<br>1 кг 340 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_jiz_name">Жиз / Казан кабоб</span></div><span class="menu-item-price" data-i18n="menu_item_jiz_price">1 порц. 80 000<br>1 кг 320 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_tushenka_name">Тушенка / с фри</span></div><span class="menu-item-price">78 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_boyin_name">Бўйин / Bo'yin</span></div><span class="menu-item-price">250 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_vaguri_name">Вагури / Vaguri</span></div><span class="menu-item-price">320 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_medalion_name">Медальон</span></div><span class="menu-item-price">120 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_nokhot_name">Нохот шурак</span></div><span class="menu-item-price">40 000 – 45 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_halim_name">Халим / Halim</span></div><span class="menu-item-price" data-i18n="menu_item_halim_price">1 порц. 45 000<br>1 кг 135 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_khash_name">Хаш / Xash</span></div><span class="menu-item-price">65 000 – 78 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kholodets_name">Холодец</span></div><span class="menu-item-price">28 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_bifstrogan_name">Бифстроган / Гуляш</span></div><span class="menu-item-price">45 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_bifshteks_name">Бифштекс</span></div><span class="menu-item-price">40 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kotletta_name">Котлета говядина</span></div><span class="menu-item-price">23 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kartofel_name">Картофель фри</span></div><span class="menu-item-price">20 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_burger_name">Бургер БООМ</span></div><span class="menu-item-price">55 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_garnir_name">Гарнир (100 гр / 1 порц.)</span></div><span class="menu-item-price">8 000 / 25 000 <small>so'm</small></span></div>
+            </div></div>
+            <!-- Категория: Плов & Особые -->
+            <div class="menu-cat" id="cat-plov"><div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_osh_komplekt_name">Ош / Osh (комплект)</span></div><span class="menu-item-price" data-i18n="menu_item_osh_komplekt_price">0.7 — 40 000~50 000<br>1 порц. — 45 000~55 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_osh_1kg_name">Ош 1 кг</span></div><span class="menu-item-price">85 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_sazan_name">Хоразм САЗАН</span></div><span class="menu-item-price">190 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kofte_name">Кофте с сыром</span></div><span class="menu-item-price">100 000 <small>so'm</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kotletta_syrom_name">Котлета с сыром</span></div><span class="menu-item-price">130 000 <small>so'm</small></span></div>
+            </div></div>
+            <!-- Категория: Шашлыки / Гриль -->
+            <div class="menu-cat" id="cat-grill"><div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_mol_jaz_name">Мол жаз / Mol jaz</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_qoy_jaz_name">Қўй жаз / Qo'y jaz</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_qiyma_name">Қийма / Qiyma</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_jigar_name">Жигар / Jigar</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_vaguri_grill_name">Вагури (гриль)</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_tovuq_name">Товуқ / Tovuq</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_baliq_som_name">Балиқ сом / Baliq som</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kavkaz_mol_name">Кавказ мол / Kavkaz mol</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_kavkaz_qoy_name">Кавказ қўй / Kavkaz qo'y</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_shampinon_name">Шампиньон</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_special_mol_name">Special мол / Special qo'y</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_barbekyu_name">Барбекю</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_tandir_name">Тандир Ғиждувон</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+            </div></div>
+            <!-- Категория: Национальные -->
+            <div class="menu-cat" id="cat-national"><div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_besh_barmoq_name">Беш бармоқ / Besh barmoq</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_norin_name">Норин / Norin</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_qazi_name">Қази / Qazi</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_qurtoba_name">Қуртоба / Qurtoba</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_manti_name">Манти / Manti</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+            </div></div>
+            <!-- Категория: Выпечка / Сомса -->
+            <div class="menu-cat" id="cat-bakery"><div class="menu-grid">
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_duhovka_name">Духовка Бухоро</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+                <div class="menu-item"><div class="menu-item-info"><span class="menu-item-name" data-i18n="menu_item_olot_somsa_name">Олот сомса / Olot somsa</span></div><span class="menu-item-price"><small data-i18n="price_on_request">so'rash</small></span></div>
+            </div></div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <span class="section-label" data-i18n="contact_label">Aloqa / Контакты</span>
+            <h2 class="section-title" data-i18n="contact_title">Где нас найти</h2>
+            <p class="section-subtitle" data-i18n="contact_sub">Har kuni sizni kutamiz · Ждём вас каждый день</p>
+            <div class="divider"></div>
+        </div>
+        <div class="info-bar">
+            <div class="info-item"><span class="info-icon">📍</span><div><h4 data-i18n="address_label">Manzil / Адрес</h4><a href="https://maps.google.com/?q=Sogdiana+4+Tashkent+Uzbekistan" target="_blank" rel="noopener" data-i18n="address_value">Согдиана, 4, Ташкент</a></div></div>
+            <div class="info-item"><span class="info-icon">📞</span><div><h4 data-i18n="phone_label">Telefon</h4><a href="tel:+998948304444" data-i18n="phone_value">+998 94 830 44 44</a></div></div>
+            <div class="info-item"><span class="info-icon">🕐</span><div><h4 data-i18n="hours_label">Ish vaqti / Часы</h4><p data-i18n="hours_value">Ochiq · Закрывается 23:30</p></div></div>
+            <div class="info-item"><span class="info-icon">🏷️</span><div><h4 data-i18n="code_label">Kod / Код</h4><p data-i18n="code_value">66CJ+H7 Tashkent</p></div></div>
+            <div class="info-item"><span class="info-icon">👥</span><div><h4 data-i18n="popular_label">Mashhur / Популярно</h4><p data-i18n="popular_value">Solo · Группы · С детьми</p></div></div>
+            <div class="info-item"><span class="info-icon">🚗</span><div><h4 data-i18n="facility_label">Qulayliklar / Удобства</h4><p data-i18n="facility_value">Туалет · Детская зона · Casual</p></div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ REVIEWS ═══════════════ -->
+    <section class="section" id="reviews">
+        <div class="section-header">
+            <span class="section-label" data-i18n="reviews_label">Fikrlar / Отзывы</span>
+            <h2 class="section-title" data-i18n="reviews_title">Что говорят о нас</h2>
+            <p class="section-subtitle" data-i18n="reviews_score">Основано на 11 отзывах · Рейтинг <strong>4.0 ⭐</strong></p>
+            <div class="divider"></div>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card featured">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_anita">Нам всё понравилось. Еда вкусная, атмосфера приятная. Обязательно вернёмся! Hammasi yoqdi, albatta qaytamiz!</p>
+                <div class="review-author">Anita Pak</div>
+                <div class="review-date" data-i18n="review_anita_date">4 месяца назад · 2 фото</div>
+            </div>
+            <div class="review-card featured">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_evgeniya">Отличная кухня, уютное атмосферное место, чистота. Благодарность всем сотрудникам ресторана. Буду рекомендовать родным!</p>
+                <div class="review-author">Evgeniya Kim</div>
+                <div class="review-date" data-i18n="review_evgeniya_date">4 месяца назад</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_bobomurod">Newly opened national food restaurant. We have already visited several times. You can try variety options of traditional food and plenty of kebabs.</p>
+                <div class="review-author">Bobomurod Muminov</div>
+                <div class="review-date" data-i18n="review_bobomurod_date">5 месяцев назад · Local Guide · 27 отзывов</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_chavondoz">A good place for families to sit and eat, have fun, and there's a children's playground. Food: 5/5. Oilaviy dam olish uchun ajoyib joy.</p>
+                <div class="review-author">Chavondoz</div>
+                <div class="review-date" data-i18n="review_chavondoz_date">5 месяцев назад · Local Guide</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_timur">Отличное место для семейного ужина. Вкусные блюда, быстрое обслуживание.</p>
+                <div class="review-author">Timur Amir</div>
+                <div class="review-date" data-i18n="review_timur_date">3 месяца назад · Local Guide</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★☆☆</div>
+                <p class="review-text" data-i18n="review_xspot">My first visit was good but second visit was not what I expected. Food came in wrong order, soup got cold. Desert was not fresh.</p>
+                <div class="review-author">X SpotScout</div>
+                <div class="review-date" data-i18n="review_xspot_date">2 недели назад · Local Guide</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_adro">Food: 5/5 · Service: 5/5. Прекрасное место для обеда и ужина. Zo'r joy!</p>
+                <div class="review-author">адро ханс</div>
+                <div class="review-date" data-i18n="review_adro_date">2 месяца назад</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text" data-i18n="review_sharofat">Приятная атмосфера, вкусная еда. Цены доступные — 100–150 тыс. сум на человека.</p>
+                <div class="review-author">Шарофат Ташходжаева</div>
+                <div class="review-date" data-i18n="review_sharofat_date">неделю назад</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ GALLERY ═══════════════ -->
+    <section class="section" id="gallery">
+        <div class="section-header">
+            <span class="section-label" data-i18n="gallery_label">Galereya / Галерея</span>
+            <h2 class="section-title" data-i18n="gallery_title">Атмосфера ресторана</h2>
+            <p class="section-subtitle" data-i18n="gallery_sub">12 фотографий от гостей и владельцев</p>
+            <div class="divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=75&fit=crop&auto=format" alt="Плов" data-alt-key="gallery_alt_plov" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=75&fit=crop&auto=format" alt="Шашлык" data-alt-key="gallery_alt_shashlik" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=75&fit=crop&auto=format" alt="Интерьер" data-alt-key="gallery_alt_interior" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=75&fit=crop&auto=format" alt="Кебаб" data-alt-key="gallery_alt_kebab" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=75&fit=crop&auto=format" alt="Сервировка" data-alt-key="gallery_alt_setting" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?w=400&q=75&fit=crop&auto=format" alt="Самса" data-alt-key="gallery_alt_samsa" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&q=75&fit=crop&auto=format" alt="Манты" data-alt-key="gallery_alt_manti" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+            <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400&q=75&fit=crop&auto=format" alt="Гриль" data-alt-key="gallery_alt_grill" class="gallery-img" loading="lazy" onerror="this.style.background='#e8ddd0'; this.style.minHeight='120px';">
+        </div>
+    </section>
+
+    <!-- ═══════════════ RESERVATION ═══════════════ -->
+    <section class="section reservation-section" id="reservation">
+        <div class="section-header">
+            <span class="section-label" data-i18n="reservation_label">Бронирование</span>
+            <h2 class="section-title" data-i18n="reservation_title">Забронируйте столик прямо на странице</h2>
+            <p class="section-subtitle" data-i18n="reservation_subtitle">Введите данные, выберите дату по номеру или дню недели, время и оставьте комментарий — год добавляется автоматически.</p>
+            <div class="divider"></div>
+        </div>
+        <div class="reservation-grid">
+            <div class="reservation-card">
+                <h3 data-i18n="reservation_panel_title">Удобно и сразу видно</h3>
+                <p data-i18n="reservation_panel_text">Вся форма находится внизу страницы. Нет лишних всплывающих окон — только чистая заявка. После отправки администратор получит уведомление и свяжется с вами для подтверждения.</p>
+                <ul class="reservation-list">
+                    <li data-i18n="reservation_hint_phone">Телефон автоматически форматируется</li>
+                    <li data-i18n="reservation_hint_date">Можно указать день недели или дату</li>
+                    <li data-i18n="reservation_hint_time">Время подбирается в диапазоне 10:00–23:00</li>
+                    <li data-i18n="reservation_hint_confirm">Вы получите подтверждение сразу после отправки</li>
+                </ul>
+            </div>
+            <form id="reserveForm" class="reservation-form" autocomplete="off">
+                <div class="form-group"><label data-i18n="form_name">Имя</label><input type="text" name="name" autocomplete="name" required></div>
+                <div class="form-group"><label data-i18n="form_phone">Телефон</label><input type="tel" name="phone" id="phoneInput" data-placeholder-key="phone_placeholder" placeholder="+998 99 123 45 67" inputmode="tel" autocomplete="tel" required></div>
+                <div class="form-group">
+                    <label data-i18n="form_date">Дата</label>
+                    <div class="date-field-wrap">
+                        <input type="text" name="dateText" id="dateText" data-placeholder-key="date_placeholder" placeholder="14.06 или Пн" autocomplete="off" required>
+                        <button type="button" class="calendar-btn" id="datePickerButton" data-aria-label-key="calendar_button" aria-label="Открыть календарь">📅</button>
+                        <input type="date" id="dateHidden" name="date" class="hidden-date" aria-hidden="true">
+                    </div>
+                    <div class="date-hint" id="dateHint"></div>
+                </div>
+                <div class="form-group"><label data-i18n="form_time">Время</label><input type="text" name="time" id="timeInput" data-placeholder-key="time_placeholder" placeholder="10:00" autocomplete="off" required></div>
+                <div class="form-group"><label data-i18n="form_guests">Гостей</label><select name="guests" autocomplete="off"><option data-i18n="guest_1">1</option><option data-i18n="guest_2">2</option><option data-i18n="guest_3">3</option><option data-i18n="guest_4">4</option><option data-i18n="guest_5plus">5+</option></select></div>
+                <div class="form-group"><label data-i18n="form_comment">Комментарий</label><textarea name="comment" rows="3" data-placeholder-key="comment_placeholder" placeholder="Например: столик у окна" autocomplete="off"></textarea></div>
+                <div class="form-status" id="formStatus"></div>
+                <button type="submit" class="submit-btn" data-i18n="form_submit">Забронировать</button>
+                <div class="success-msg" id="successMsg" data-i18n="form_success">Спасибо! Администратор свяжется с вами.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h3>Afzal Sergeli</h3>
+                <p data-i18n="footer_desc">Ресторан национальной узбекской кухни. Milliy taomlar an'anasi 2024 yildan beri. Каждое блюдо — с душой и любовью к гостям.</p>
+            </div>
+            <div>
+                <h3 data-i18n="footer_menu_title">Menyu / Меню</h3>
+                <p><a href="#menu" data-i18n="footer_menu_first">Первые блюда</a></p>
+                <p><a href="#menu" data-i18n="footer_menu_second">Вторые блюда</a></p>
+                <p><a href="#menu" data-i18n="footer_menu_plov">Плов / Osh</a></p>
+                <p><a href="#menu" data-i18n="footer_menu_grill">Шашлыки</a></p>
+                <p><a href="#menu" data-i18n="footer_menu_bakery">Выпечка / Somsa</a></p>
+            </div>
+            <div>
+                <h3 data-i18n="footer_contact_title">Aloqa / Контакты</h3>
+                <p>📞 <a href="tel:+998948304444">+998 94 830 44 44</a></p>
+                <p data-i18n="footer_address">📍 Согдиана, 4, Ташкент</p>
+                <p data-i18n="footer_hours">🕐 Ochiq → 23:30</p>
+                <p data-i18n="footer_rating">⭐ Reyting 4.0 (11 fikr)</p>
+            </div>
+        </div>
+        <div class="footer-bottom" data-i18n="footer_copyright">&copy; 2024 Afzal Sergeli. Barcha huquqlar himoyalangan. Все права защищены. Ташкент, Узбекистан.</div>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        (function() {
+            // ══════════════════════════════════════════
+            // LANGUAGE TRANSLATIONS (COMPLETE)
+            // ══════════════════════════════════════════
+            const translations = {
+                ru: {
+                    nav_about: "О нас",
+                    nav_menu: "Меню",
+                    nav_reviews: "Отзывы",
+                    nav_gallery: "Галерея",
+                    nav_contact: "Контакты",
+                    nav_reserve: "Забронировать",
+                    hero_open: "Открыто · Закрывается 23:30",
+                    hero_title: "Вкус традиций<br>в сердце <span class='gold'>Ташкента</span>",
+                    hero_sub: "Национальная узбекская кухня с душой. Семейные рецепты, свежие продукты и настоящее узбекское гостеприимство — mehmondo'stlik an'anasi.",
+                    hero_menu: "🍖 Смотреть меню",
+                    hero_route: "📍 Проложить маршрут",
+                    about_label: "О ресторане",
+                    about_title: "Добро пожаловать в Afzal Sergeli",
+                    about_sub: "Место, где традиции встречаются с комфортом — har bir mehmon oilamizning bir qismiga aylanadi.",
+                    about_card1_title: "Национальная кухня",
+                    about_card1_text: "Богатый выбор традиционных узбекских блюд — an'anaviy retseptlar asosida tayyorlanadi.",
+                    about_card2_title: "Для всей семьи",
+                    about_card2_text: "Уютная атмосфера, детская игровая зона — bolalar maydonchasi mavjud.",
+                    about_card3_title: "Шашлыки на углях",
+                    about_card3_text: "Сочные шашлыки и гриль-блюда на открытом огне — ochiq olovda tayyorlanadi.",
+                    about_card4_title: "Рейтинг 4.0",
+                    about_card4_text: "Основано на 11 отзывах наших дорогих гостей — har bir fikr biz uchun qadrli!",
+                    menu_label: "Меню",
+                    menu_title: "Блюда от шеф-повара",
+                    menu_subtitle: "Каждое блюдо — история вкуса, рассказанная с любовью к узбекской кухне.",
+                    tab_first: "🍜 Первые блюда",
+                    tab_second: "🍖 Вторые блюда",
+                    tab_plov: "🍚 Плов & Особые",
+                    tab_grill: "🔥 Шашлыки / Гриль",
+                    tab_national: "🏺 Национальные",
+                    tab_bakery: "🥟 Выпечка / Сомса",
+                    menu_item_mastava_name: "Мастава / Mastava",
+                    menu_item_mastava_desc: "Сытный суп с рисом и овощами",
+                    menu_item_lagmon_name: "Лағмон / Lag'mon",
+                    menu_item_lagmon_desc: "Домашняя лапша с насыщенным бульоном",
+                    menu_item_mampar_name: "Мампар / Mampar",
+                    menu_item_mampar_desc: "Традиционный суп с клёцками",
+                    menu_item_kaynatma_name: "Қайнатма шўрва",
+                    menu_item_kaynatma_desc: "Наваристый бульон Қўй / Мол",
+                    menu_item_chuchvara_name: "Чучвара / Chuchvara",
+                    menu_item_chuchvara_desc: "Пельмени в ароматном бульоне",
+                    menu_item_teftel_name: "Тефтель шўрва",
+                    menu_item_teftel_desc: "Суп с нежными фрикадельками",
+                    menu_item_dumgaza_name: "Думгаза / Dumgaza",
+                    menu_item_dumgaza_price: "1 порц. 86 000<br>1 кг 340 000 <small>so'm</small>",
+                    menu_item_jiz_name: "Жиз / Казан кабоб",
+                    menu_item_jiz_price: "1 порц. 80 000<br>1 кг 320 000 <small>so'm</small>",
+                    menu_item_tushenka_name: "Тушенка / с фри",
+                    menu_item_boyin_name: "Бўйин / Bo'yin",
+                    menu_item_vaguri_name: "Вагури / Vaguri",
+                    menu_item_medalion_name: "Медальон",
+                    menu_item_nokhot_name: "Нохот шурак",
+                    menu_item_halim_name: "Халим / Halim",
+                    menu_item_halim_price: "1 порц. 45 000<br>1 кг 135 000 <small>so'm</small>",
+                    menu_item_khash_name: "Хаш / Xash",
+                    menu_item_kholodets_name: "Холодец",
+                    menu_item_bifstrogan_name: "Бифстроган / Гуляш",
+                    menu_item_bifshteks_name: "Бифштекс",
+                    menu_item_kotletta_name: "Котлета говядина",
+                    menu_item_kartofel_name: "Картофель фри",
+                    menu_item_burger_name: "Бургер БООМ",
+                    menu_item_garnir_name: "Гарнир (100 гр / 1 порц.)",
+                    menu_item_osh_komplekt_name: "Ош / Osh (комплект)",
+                    menu_item_osh_komplekt_price: "0.7 — 40 000~50 000<br>1 порц. — 45 000~55 000 <small>so'm</small>",
+                    menu_item_osh_1kg_name: "Ош 1 кг",
+                    menu_item_sazan_name: "Хоразм САЗАН",
+                    menu_item_kofte_name: "Кофте с сыром",
+                    menu_item_kotletta_syrom_name: "Котлета с сыром",
+                    menu_item_mol_jaz_name: "Мол жаз / Mol jaz",
+                    menu_item_qoy_jaz_name: "Қўй жаз / Qo'y jaz",
+                    menu_item_qiyma_name: "Қийма / Qiyma",
+                    menu_item_jigar_name: "Жигар / Jigar",
+                    menu_item_vaguri_grill_name: "Вагури (гриль)",
+                    menu_item_tovuq_name: "Товуқ / Tovuq",
+                    menu_item_baliq_som_name: "Балиқ сом / Baliq som",
+                    menu_item_kavkaz_mol_name: "Кавказ мол / Kavkaz mol",
+                    menu_item_kavkaz_qoy_name: "Кавказ қўй / Kavkaz qo'y",
+                    menu_item_shampinon_name: "Шампиньон",
+                    menu_item_special_mol_name: "Special мол / Special qo'y",
+                    menu_item_barbekyu_name: "Барбекю",
+                    menu_item_tandir_name: "Тандир Ғиждувон",
+                    menu_item_besh_barmoq_name: "Беш бармоқ / Besh barmoq",
+                    menu_item_norin_name: "Норин / Norin",
+                    menu_item_qazi_name: "Қази / Qazi",
+                    menu_item_qurtoba_name: "Қуртоба / Qurtoba",
+                    menu_item_manti_name: "Манти / Manti",
+                    menu_item_duhovka_name: "Духовка Бухоро",
+                    menu_item_olot_somsa_name: "Олот сомса / Olot somsa",
+                    price_on_request: "уточняйте",
+                    contact_label: "Контакты",
+                    contact_title: "Где нас найти",
+                    contact_sub: "Har kuni sizni kutamiz · Ждём вас каждый день",
+                    address_label: "Адрес",
+                    address_value: "Согдиана, 4, Ташкент",
+                    phone_label: "Телефон",
+                    phone_value: "+998 94 830 44 44",
+                    hours_label: "Часы работы",
+                    hours_value: "Открыто · Закрывается 23:30",
+                    code_label: "Код",
+                    code_value: "66CJ+H7 Tashkent",
+                    popular_label: "Популярно",
+                    popular_value: "Solo · Группы · С детьми",
+                    facility_label: "Удобства",
+                    facility_value: "Туалет · Детская зона · Casual",
+                    reviews_label: "Отзывы",
+                    reviews_title: "Что говорят о нас",
+                    reviews_score: "Основано на 11 отзывах · Рейтинг <strong>4.0 ⭐</strong>",
+                    review_anita: "Нам всё понравилось. Еда вкусная, атмосфера приятная. Обязательно вернёмся! Hammasi yoqdi, albatta qaytamiz!",
+                    review_anita_date: "4 месяца назад · 2 фото",
+                    review_evgeniya: "Отличная кухня, уютное атмосферное место, чистота. Благодарность всем сотрудникам ресторана. Буду рекомендовать родным!",
+                    review_evgeniya_date: "4 месяца назад",
+                    review_bobomurod: "Newly opened national food restaurant. We have already visited several times. You can try variety options of traditional food and plenty of kebabs.",
+                    review_bobomurod_date: "5 месяцев назад · Local Guide · 27 отзывов",
+                    review_chavondoz: "A good place for families to sit and eat, have fun, and there's a children's playground. Food: 5/5. Oilaviy dam olish uchun ajoyib joy.",
+                    review_chavondoz_date: "5 месяцев назад · Local Guide",
+                    review_timur: "Отличное место для семейного ужина. Вкусные блюда, быстрое обслуживание.",
+                    review_timur_date: "3 месяца назад · Local Guide",
+                    review_xspot: "My first visit was good but second visit was not what I expected. Food came in wrong order, soup got cold. Desert was not fresh.",
+                    review_xspot_date: "2 недели назад · Local Guide",
+                    review_adro: "Food: 5/5 · Service: 5/5. Прекрасное место для обеда и ужина. Zo'r joy!",
+                    review_adro_date: "2 месяца назад",
+                    review_sharofat: "Приятная атмосфера, вкусная еда. Цены доступные — 100–150 тыс. сум на человека.",
+                    review_sharofat_date: "неделю назад",
+                    gallery_label: "Галерея",
+                    gallery_title: "Атмосфера ресторана",
+                    gallery_sub: "12 фотографий от гостей и владельцев",
+                    gallery_alt_plov: "Узбекский плов",
+                    gallery_alt_shashlik: "Шашлыки на гриле",
+                    gallery_alt_interior: "Интерьер ресторана",
+                    gallery_alt_kebab: "Сочные кебабы",
+                    gallery_alt_setting: "Сервировка блюд",
+                    gallery_alt_samsa: "Узбекская самса",
+                    gallery_alt_manti: "Манты на пару",
+                    gallery_alt_grill: "Гриль меню",
+                    reservation_label: "Бронирование",
+                    reservation_title: "Забронируйте столик прямо на странице",
+                    reservation_subtitle: "Введите данные, выберите дату по номеру или дню недели, время и оставьте комментарий — год добавляется автоматически.",
+                    reservation_panel_title: "Удобно и сразу видно",
+                    reservation_panel_text: "Вся форма находится внизу страницы. Нет лишних всплывающих окон — только чистая заявка. После отправки администратор получит уведомление и свяжется с вами для подтверждения.",
+                    reservation_hint_phone: "Телефон автоматически форматируется",
+                    reservation_hint_date: "Можно указать день недели или дату",
+                    reservation_hint_time: "Время подбирается в диапазоне 10:00–23:00",
+                    reservation_hint_confirm: "Вы получите подтверждение сразу после отправки",
+                    form_name: "Имя",
+                    form_phone: "Телефон",
+                    form_date: "Дата",
+                    form_time: "Время",
+                    form_guests: "Гостей",
+                    form_comment: "Комментарий",
+                    form_submit: "Забронировать",
+                    form_success: "Спасибо! Администратор свяжется с вами.",
+                    phone_placeholder: "+998 99 123 45 67",
+                    date_placeholder: "14.06 или Пн",
+                    time_placeholder: "10:00",
+                    comment_placeholder: "Например: столик у окна",
+                    calendar_button: "Открыть календарь",
+                    guest_1: "1",
+                    guest_2: "2",
+                    guest_3: "3",
+                    guest_4: "4",
+                    guest_5plus: "5+",
+                    footer_desc: "Ресторан национальной узбекской кухни. Milliy taomlar an'anasi 2024 yildan beri. Каждое блюдо — с душой и любовью к гостям.",
+                    footer_menu_title: "Меню",
+                    footer_menu_first: "Первые блюда",
+                    footer_menu_second: "Вторые блюда",
+                    footer_menu_plov: "Плов / Osh",
+                    footer_menu_grill: "Шашлыки",
+                    footer_menu_bakery: "Выпечка / Somsa",
+                    footer_contact_title: "Контакты",
+                    footer_address: "📍 Согдиана, 4, Ташкент",
+                    footer_hours: "🕐 Открыто → 23:30",
+                    footer_rating: "⭐ Рейтинг 4.0 (11 отзывов)",
+                    footer_copyright: "© 2024 Afzal Sergeli. Все права защищены. Ташкент, Узбекистан.",
+                    page_title: "Afzal Sergeli — Milliy taomlar restorani | Ташкент",
+                    page_description: "Afzal Sergeli — ресторан национальной узбекской кухни. Бронирование столиков онлайн. Согдиана, 4.",
+                    reserve_sent: "Бронирование отправлено администратору.",
+                    reserve_error: "Ошибка бронирования. Проверьте данные и повторите.",
+                    server_unavailable: "Сервер недоступен. Попробуйте позже или позвоните нам.",
+                    validation_fix: "Пожалуйста, исправьте ошибки в форме.",
+                    validation_name: "Введите имя от 2 символов.",
+                    validation_phone: "Укажите корректный телефон.",
+                    validation_date: "Выберите дату сегодня или позже.",
+                    validation_time: "Введите время в формате ЧЧ:ММ.",
+                    validation_time_window: "Время должно быть между 10:00 и 23:00.",
+                    validation_guests: "Выберите количество гостей.",
+                    validation_comment: "Комментарий не должен превышать 220 символов."
+                },
+                uz: {
+                    nav_about: "Biz haqimizda",
+                    nav_menu: "Menyu",
+                    nav_reviews: "Fikrlar",
+                    nav_gallery: "Galereya",
+                    nav_contact: "Aloqa",
+                    nav_reserve: "Band qilish",
+                    hero_open: "Ochiq · 23:30 gacha",
+                    hero_title: "Ta'mi an'analar<br>yuragida <span class='gold'>Toshkent</span>",
+                    hero_sub: "Milliy o'zbek taomlari jon bilan tayyorlanadi. Oilaviy retseptlar, yangi mahsulotlar va haqiqiy o'zbek mehmondo'stligi.",
+                    hero_menu: "🍖 Menyu",
+                    hero_route: "📍 Yo'l ochish",
+                    about_label: "Biz haqimizda",
+                    about_title: "Afzal Sergeli ga xush kelibsiz",
+                    about_sub: "An'analar qulaylik bilan uchrashadigan joy — har bir mehmon oilamizning bir qismiga aylanadi.",
+                    about_card1_title: "Milliy taomlar",
+                    about_card1_text: "An'anaviy o'zbek taomlarining boy tanlovi — an'anaviy retseptlar asosida tayyorlanadi.",
+                    about_card2_title: "Butun oila uchun",
+                    about_card2_text: "Shinam muhit va bolalar maydonchasi — bolalar maydonchasi mavjud.",
+                    about_card3_title: "Olovda pishirilgan",
+                    about_card3_text: "Ochiq olovda tayyorlangan shashlik va grill taomlari — ochiq olovda tayyorlanadi.",
+                    about_card4_title: "Reyting 4.0",
+                    about_card4_text: "11 ta mehmon fikriga asoslangan — har bir fikr biz uchun qadrli!",
+                    menu_label: "Menyu",
+                    menu_title: "Chefning maxsus taomlari",
+                    menu_subtitle: "Har bir taom — bu o'zbek oshxonasiga bo'lgan muhabbat bilan aytilgan maza hikoyasi.",
+                    tab_first: "🍜 Birinchi taomlar",
+                    tab_second: "🍖 Ikkinchi taomlar",
+                    tab_plov: "🍚 Osh & Maxsus",
+                    tab_grill: "🔥 Shashlik / Grill",
+                    tab_national: "🏺 Milliy taomlar",
+                    tab_bakery: "🥟 Nonvoy mahsulotlari / Somsa",
+                    menu_item_mastava_name: "Mastava / Мастава",
+                    menu_item_mastava_desc: "Guruch va sabzavotli mazali sho'rva",
+                    menu_item_lagmon_name: "Lag'mon / Лағмон",
+                    menu_item_lagmon_desc: "Uy qurilishi noodle quyuq sho'rva bilan",
+                    menu_item_mampar_name: "Mampar / Мампар",
+                    menu_item_mampar_desc: "An'anaviy chuchvara sho'rva",
+                    menu_item_kaynatma_name: "Qaynatma sho'rva / Қайнатма шўрва",
+                    menu_item_kaynatma_desc: "Qo'y yoki mol go'shti bilan to'yimli sho'rva",
+                    menu_item_chuchvara_name: "Chuchvara / Чучвара",
+                    menu_item_chuchvara_desc: "Aromatli sho'rvada pelmenlar",
+                    menu_item_teftel_name: "Teftel sho'rva / Тефтель шўрва",
+                    menu_item_teftel_desc: "Yumshoq frikadelkali sho'rva",
+                    menu_item_dumgaza_name: "Dumgaza / Думгаза",
+                    menu_item_dumgaza_price: "1 porsiya 86 000<br>1 kg 340 000 <small>so'm</small>",
+                    menu_item_jiz_name: "Jiz / Qozon kabob / Жиз",
+                    menu_item_jiz_price: "1 porsiya 80 000<br>1 kg 320 000 <small>so'm</small>",
+                    menu_item_tushenka_name: "Tushenka / Тушенка",
+                    menu_item_boyin_name: "Bo'yin / Бўйин",
+                    menu_item_vaguri_name: "Vaguri / Вагури",
+                    menu_item_medalion_name: "Medalon / Медальон",
+                    menu_item_nokhot_name: "Noxot shurak / Нохот шурак",
+                    menu_item_halim_name: "Halim / Халим",
+                    menu_item_halim_price: "1 porsiya 45 000<br>1 kg 135 000 <small>so'm</small>",
+                    menu_item_khash_name: "Xash / Хаш",
+                    menu_item_kholodets_name: "Xolodets / Холодец",
+                    menu_item_bifstrogan_name: "Bifstrogan / Gulyash / Бифстроган",
+                    menu_item_bifshteks_name: "Bifshteks / Бифштекс",
+                    menu_item_kotletta_name: "Kotlet go'sht / Котлета говядина",
+                    menu_item_kartofel_name: "Kartoshka fri / Картофель фри",
+                    menu_item_burger_name: "Burger BOOM / Бургер БООМ",
+                    menu_item_garnir_name: "Garnir (100 gr / 1 porsiya) / Гарнир",
+                    menu_item_osh_komplekt_name: "Osh / Ош (komplekt)",
+                    menu_item_osh_komplekt_price: "0.7 — 40 000~50 000<br>1 porsiya — 45 000~55 000 <small>so'm</small>",
+                    menu_item_osh_1kg_name: "Osh 1 kg / Ош 1 кг",
+                    menu_item_sazan_name: "Xorazm SAZAN / Хоразм САЗАН",
+                    menu_item_kofte_name: "Kofte pishloqli / Кофте с сыром",
+                    menu_item_kotletta_syrom_name: "Kotlet pishloqli / Котлета с сыром",
+                    menu_item_mol_jaz_name: "Mol jaz / Мол жаз",
+                    menu_item_qoy_jaz_name: "Qo'y jaz / Қўй жаз",
+                    menu_item_qiyma_name: "Qiyma / Қийма",
+                    menu_item_jigar_name: "Jigar / Жигар",
+                    menu_item_vaguri_grill_name: "Vaguri (grill) / Вагури (гриль)",
+                    menu_item_tovuq_name: "Tovuq / Товуқ",
+                    menu_item_baliq_som_name: "Baliq som / Балиқ сом",
+                    menu_item_kavkaz_mol_name: "Kavkaz mol / Кавказ мол",
+                    menu_item_kavkaz_qoy_name: "Kavkaz qo'y / Кавказ қўй",
+                    menu_item_shampinon_name: "Shampinon / Шампиньон",
+                    menu_item_special_mol_name: "Special mol / Special qo'y",
+                    menu_item_barbekyu_name: "Barbekyu / Барбекю",
+                    menu_item_tandir_name: "Tandir G'ijduvon / Тандир Ғиждувон",
+                    menu_item_besh_barmoq_name: "Besh barmoq / Беш бармоқ",
+                    menu_item_norin_name: "Norin / Норин",
+                    menu_item_qazi_name: "Qazi / Қази",
+                    menu_item_qurtoba_name: "Qurtoba / Қуртоба",
+                    menu_item_manti_name: "Manti / Манти",
+                    menu_item_duhovka_name: "Duhovka Buxoro / Духовка Бухоро",
+                    menu_item_olot_somsa_name: "Olot somsa / Олот сомса",
+                    price_on_request: "so'rash",
+                    contact_label: "Aloqa",
+                    contact_title: "Bizni qayerdan topasiz",
+                    contact_sub: "Har kuni sizni kutamiz · Ждём вас каждый день",
+                    address_label: "Manzil",
+                    address_value: "Sog'diyona, 4, Toshkent",
+                    phone_label: "Telefon",
+                    phone_value: "+998 94 830 44 44",
+                    hours_label: "Ish vaqti",
+                    hours_value: "Ochiq · 23:30 gacha",
+                    code_label: "Kod",
+                    code_value: "66CJ+H7 Tashkent",
+                    popular_label: "Mashhur",
+                    popular_value: "Solo · Guruhlar · Bolalar bilan",
+                    facility_label: "Qulayliklar",
+                    facility_value: "Hojatxona · Bolalar maydonchasi · Casual",
+                    reviews_label: "Fikrlar",
+                    reviews_title: "Biz haqimizda nima deyishadi",
+                    reviews_score: "11 ta fikr asosida · Reyting <strong>4.0 ⭐</strong>",
+                    review_anita: "Hammasi yoqdi. Taom mazali, muhit yoqimli. Albatta qaytamiz! Нам всё понравилось.",
+                    review_anita_date: "4 oy oldin · 2 foto",
+                    review_evgeniya: "Ajoyib oshxona, shinam atmosfera, tozalik. Restoran xodimlariga rahmat. Qarindoshlarimga tavsiya qilaman!",
+                    review_evgeniya_date: "4 oy oldin",
+                    review_bobomurod: "Yangi ochilgan milliy taomlar restorani. Bir necha marta tashrif buyurdik. An'anaviy taomlarning ko'p turlarini va kaboblarni tatib ko'rishingiz mumkin.",
+                    review_bobomurod_date: "5 oy oldin · Local Guide · 27 fikr",
+                    review_chavondoz: "Oilaviy dam olish uchun ajoyib joy. Bolalar maydonchasi mavjud. Taom: 5/5.",
+                    review_chavondoz_date: "5 oy oldin · Local Guide",
+                    review_timur: "Oilaviy kechki ovqat uchun ajoyib joy. Mazali taomlar, tez xizmat.",
+                    review_timur_date: "3 oy oldin · Local Guide",
+                    review_xspot: "Birinchi tashrifim yaxshi edi, lekin ikkinchi marta kutganimdek bo'lmadi. Taomlar noto'g'ri tartibda keldi, sho'rva sovib qoldi. Desert yangi emas edi.",
+                    review_xspot_date: "2 hafta oldin · Local Guide",
+                    review_adro: "Taom: 5/5 · Xizmat: 5/5. Tushlik va kechki ovqat uchun ajoyib joy.",
+                    review_adro_date: "2 oy oldin",
+                    review_sharofat: "Yoqimli atmosfera, mazali taom. Narxlar qulay — kishi boshiga 100–150 ming so'm.",
+                    review_sharofat_date: "bir hafta oldin",
+                    gallery_label: "Galereya",
+                    gallery_title: "Restoran atmosferasi",
+                    gallery_sub: "Mehmonlar va egalaridan 12 ta fotosurat",
+                    gallery_alt_plov: "O'zbek oshi",
+                    gallery_alt_shashlik: "Grilda shashlik",
+                    gallery_alt_interior: "Restoran interyeri",
+                    gallery_alt_kebab: "Mazali kaboblar",
+                    gallery_alt_setting: "Taom bezaklari",
+                    gallery_alt_samsa: "O'zbek somsasi",
+                    gallery_alt_manti: "Bug'da pishirilgan manti",
+                    gallery_alt_grill: "Grill menyusi",
+                    reservation_label: "Band qilish",
+                    reservation_title: "Sahifada stolni band qiling",
+                    reservation_subtitle: "Ma'lumotlarni kiriting, sanani raqam yoki hafta kuni bo'yicha tanlang, vaqtni kiriting va izoh qoldiring — yil avtomatik qo'shiladi.",
+                    reservation_panel_title: "Qulay va darhol ko'rinadi",
+                    reservation_panel_text: "Barcha forma sahifaning pastki qismida joylashgan. Keraksiz qalqib chiquvchi oynalar yo'q — faqat aniq so'rov. Yuborilgandan so'ng administrator xabarnoma oladi va tasdiqlash uchun siz bilan bog'lanadi.",
+                    reservation_hint_phone: "Telefon avtomatik formatlanadi",
+                    reservation_hint_date: "Hafta kuni yoki sanani kiritish mumkin",
+                    reservation_hint_time: "Vaqt 10:00–23:00 oralig'ida tanlanadi",
+                    reservation_hint_confirm: "Yuborilgandan so'ng darhol tasdiq olasiz",
+                    form_name: "Ism",
+                    form_phone: "Telefon",
+                    form_date: "Sana",
+                    form_time: "Vaqt",
+                    form_guests: "Mehmonlar",
+                    form_comment: "Izoh",
+                    form_submit: "Band qilish",
+                    form_success: "Rahmat! Administrator siz bilan bog'lanadi.",
+                    phone_placeholder: "+998 99 123 45 67",
+                    date_placeholder: "14.06 yoki Du",
+                    time_placeholder: "10:00",
+                    comment_placeholder: "Masalan: deraza yonidagi stol",
+                    calendar_button: "Kalendarni ochish",
+                    guest_1: "1",
+                    guest_2: "2",
+                    guest_3: "3",
+                    guest_4: "4",
+                    guest_5plus: "5+",
+                    footer_desc: "Milliy o'zbek taomlari restorani. Milliy taomlar an'anasi 2024 yildan beri. Har bir taom — mehmonlarga muhabbat bilan.",
+                    footer_menu_title: "Menyu",
+                    footer_menu_first: "Birinchi taomlar",
+                    footer_menu_second: "Ikkinchi taomlar",
+                    footer_menu_plov: "Osh",
+                    footer_menu_grill: "Shashliklar",
+                    footer_menu_bakery: "Nonvoy mahsulotlari",
+                    footer_contact_title: "Aloqa",
+                    footer_address: "📍 Sog'diyona, 4, Toshkent",
+                    footer_hours: "🕐 Ochiq → 23:30",
+                    footer_rating: "⭐ Reyting 4.0 (11 fikr)",
+                    footer_copyright: "© 2024 Afzal Sergeli. Barcha huquqlar himoyalangan. Toshkent, O'zbekiston.",
+                    page_title: "Afzal Sergeli — Milliy taomlar restorani | Toshkent",
+                    page_description: "Afzal Sergeli — milliy o'zbek taomlari restorani. Stol band qilish onlayn. Sog'diyona, 4.",
+                    reserve_sent: "Band qilish ma'lumoti administratorga yuborildi.",
+                    reserve_error: "Band qilishda xatolik. Ma'lumotlarni tekshiring va qayta urining.",
+                    server_unavailable: "Server mavjud emas. Keyinroq urinib ko'ring yoki qo'ng'iroq qiling.",
+                    validation_fix: "Iltimos, shakldagi xatolarni tuzating.",
+                    validation_name: "Kamida 2 ta belgidan iborat ism kiriting.",
+                    validation_phone: "To'g'ri telefon raqamini kiriting.",
+                    validation_date: "Bugun yoki keyingi sanani tanlang.",
+                    validation_time: "Vaqtni SS:MM formatida kiriting.",
+                    validation_time_window: "Vaqt 10:00 dan 23:00 gacha bo'lishi kerak.",
+                    validation_guests: "Mehmonlar sonini tanlang.",
+                    validation_comment: "Izoh 220 ta belgidan oshmasligi kerak."
+                }
+            };
+
+            let currentLang = 'ru';
+
+            function switchLang(lang) {
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                document.title = translations[lang]?.page_title || document.title;
+                const pageDesc = document.getElementById('pageDescription');
+                if (pageDesc && translations[lang]?.page_description) {
+                    pageDesc.content = translations[lang].page_description;
+                }
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        if (key === 'hero_title' || key === 'reviews_score') {
+                            el.innerHTML = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+                document.querySelectorAll('[data-placeholder-key]').forEach(el => {
+                    const pk = el.dataset.placeholderKey;
+                    if (translations[lang] && translations[lang][pk]) el.placeholder = translations[lang][pk];
+                });
+                document.querySelectorAll('[data-aria-label-key]').forEach(el => {
+                    const ak = el.dataset.ariaLabelKey;
+                    if (translations[lang] && translations[lang][ak]) el.setAttribute('aria-label', translations[lang][ak]);
+                });
+                document.querySelectorAll('[data-alt-key]').forEach(el => {
+                    const ak = el.dataset.altKey;
+                    if (translations[lang] && translations[lang][ak]) el.alt = translations[lang][ak];
+                });
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+                localStorage.setItem('preferredLang', lang);
+            }
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => switchLang(btn.dataset
+                .lang)));
+            switchLang(localStorage.getItem('preferredLang') || 'ru');
+
+            // ── Mobile menu ──────────────────
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileOverlay');
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                overlay.classList.toggle('active');
+            });
+            overlay.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-menu a, .nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    overlay.classList.remove('active');
+                });
+            });
+
+            // ── Menu tabs ────────────────────
+            document.getElementById('menuTabs').addEventListener('click', (e) => {
+                if (e.target.classList.contains('menu-tab')) {
+                    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                    e.target.classList.add('active');
+                    const cat = e.target.dataset.cat;
+                    document.querySelectorAll('.menu-cat').forEach(c => c.classList.remove('active'));
+                    const target = document.getElementById('cat-' + cat);
+                    if (target) {
+                        target.classList.add('active');
+                        target.querySelectorAll('.menu-item').forEach((item, i) => {
+                            item.style.animation = 'none';
+                            item.offsetHeight;
+                            item.style.animation = `fadeInUp .45s ease-out ${i * .03}s both`;
+                        });
+                    }
+                }
+            });
+
+            // ── Reservation form ─────────────
+            const reserveForm = document.getElementById('reserveForm');
+            const formStatus = document.getElementById('formStatus');
+            const successMsg = document.getElementById('successMsg');
+            const phoneInput = document.getElementById('phoneInput');
+            const dateText = document.getElementById('dateText');
+            const dateHidden = document.getElementById('dateHidden');
+            const timeInput = document.getElementById('timeInput');
+            const dateHint = document.getElementById('dateHint');
+
+            function t(key) {
+                return translations[currentLang] && translations[currentLang][key] ? translations[currentLang][key] :
+                    key;
+            }
+
+            function createErrorElement(input) {
+                let err = input.parentElement.querySelector('.error-message');
+                if (!err) {
+                    err = document.createElement('div');
+                    err.className = 'error-message';
+                    input.parentElement.appendChild(err);
+                }
+                return err;
+            }
+
+            function clearValidation() {
+                reserveForm.querySelectorAll('.error-message').forEach(el => el.remove());
+                reserveForm.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+                reserveForm.querySelectorAll('.field-valid').forEach(el => el.classList.remove('field-valid'));
+                formStatus.textContent = '';
+                formStatus.className = 'form-status';
+                successMsg.classList.remove('active');
+            }
+
+            function addError(input, msg) {
+                input.classList.add('field-error');
+                createErrorElement(input).textContent = msg;
+            }
+
+            function formatPhone(value) {
+                const d = value.replace(/\D/g, '');
+                if (!d) return '';
+                if (d.startsWith('998')) return '+998 ' + d.slice(3).replace(/^(\d{2})(\d{0,3})(\d{0,2})(\d{0,2})/, (m, a,
+                    b, c, dd) => [a, b, c, dd].filter(Boolean).join(' '));
+                if (d.startsWith('9')) return '+998 ' + d.slice(1).replace(/^(\d{2})(\d{0,3})(\d{0,2})(\d{0,2})/, (m, a,
+                    b, c, dd) => [a, b, c, dd].filter(Boolean).join(' '));
+                return '+' + d.replace(/^(\d{1,3})(\d{0,3})(\d{0,2})(\d{0,2})/, (m, a, b, c, dd) => [a, b, c, dd].filter(
+                    Boolean).join(' '));
+            }
+
+            function formatTime(value) {
+                const d = value.replace(/[^\d]/g, '');
+                if (d.length <= 2) return d;
+                if (d.length <= 4) return d.replace(/^(\d{2})(\d{1,2})/, '$1:$2');
+                return d.slice(0, 4).replace(/^(\d{2})(\d{2})/, '$1:$2');
+            }
+
+            const weekdayMap = {
+                ru: { пн: 1, пон: 1, понедельник: 1, вт: 2, вторник: 2, ср: 3, среда: 3, чт: 4, четверг: 4, пт: 5,
+                    пятница: 5, сб: 6, суббота: 6, вс: 0, воскресенье: 0 },
+                uz: { du: 1, dushanba: 1, se: 2, seshanba: 2, ch: 3, chorshanba: 3, pa: 4, payshanba: 4, ju: 5, juma: 5,
+                    sh: 6, shanba: 6, ya: 0, yakshanba: 0 }
+            };
+
+            function getNextWeekday(dayIndex) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const diff = (dayIndex + 7 - today.getDay()) % 7;
+                const target = new Date(today);
+                target.setDate(today.getDate() + diff);
+                return target;
+            }
+
+            function formatDateDisplay(date) {
+                return String(date.getDate()).padStart(2, '0') + '.' + String(date.getMonth() + 1).padStart(2, '0');
+            }
+
+            function parseDateText(value) {
+                if (!value) return null;
+                const norm = value.trim().toLowerCase().replace(/ё/g, 'е').replace(/[.,]/g, '');
+                const wd = weekdayMap[currentLang][norm] || weekdayMap.ru[norm] || weekdayMap.uz[norm];
+                if (wd !== undefined) return getNextWeekday(wd).toISOString().slice(0, 10);
+                const parts = norm.replace(/[-\/]/g, '.').split('.').map(p => p.trim());
+                if (parts.length >= 2 && parts[0] && parts[1]) {
+                    const day = Number(parts[0]);
+                    const month = Number(parts[1]);
+                    if (Number.isInteger(day) && Number.isInteger(month) && month >= 1 && month <= 12 && day >= 1 && day <=
+                        31) {
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        let year = today.getFullYear();
+                        const candidate = new Date(year, month - 1, day);
+                        candidate.setHours(0, 0, 0, 0);
+                        if (candidate < today) candidate.setFullYear(year + 1);
+                        return candidate.toISOString().slice(0, 10);
+                    }
+                }
+                return null;
+            }
+
+            phoneInput.addEventListener('input', () => { phoneInput.value = formatPhone(phoneInput.value); });
+            timeInput.addEventListener('input', () => { timeInput.value = formatTime(timeInput.value); });
+
+            dateText.addEventListener('blur', () => {
+                if (!dateText.value.trim()) return;
+                const parsed = parseDateText(dateText.value);
+                if (parsed) {
+                    const date = new Date(parsed);
+                    dateHidden.value = parsed;
+                    dateText.value = formatDateDisplay(date);
+                    dateHint.textContent = '';
+                    dateText.classList.add('field-valid');
+                    dateText.classList.remove('field-error');
+                } else {
+                    dateHint.textContent = t('validation_date');
+                    dateText.classList.add('field-error');
+                    dateText.classList.remove('field-valid');
+                }
+            });
+
+            document.getElementById('datePickerButton').addEventListener('click', () => {
+                if (dateHidden.showPicker) dateHidden.showPicker();
+                else dateHidden.focus();
+            });
+
+            dateHidden.addEventListener('input', () => {
+                if (!dateHidden.value) return;
+                const date = new Date(dateHidden.value);
+                if (!Number.isNaN(date.getTime())) {
+                    dateText.value = formatDateDisplay(date);
+                    dateText.classList.remove('field-error');
+                    dateText.classList.add('field-valid');
+                    dateHint.textContent = '';
+                }
+            });
+
+            function validateData(data) {
+                const errors = {};
+                if (!data.name.trim() || data.name.trim().length < 2) errors.name = t('validation_name');
+                const cleanPhone = data.phone.replace(/[\s()\-+]/g, '');
+                if (!cleanPhone || cleanPhone.length < 8 || cleanPhone.length > 15 || /[^0-9]/.test(cleanPhone))
+                    errors.phone = t('validation_phone');
+                const selDate = new Date(data.date);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (!data.date || Number.isNaN(selDate.getTime()) || selDate < today) errors.date = t('validation_date');
+                if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(data.time)) {
+                    errors.time = t('validation_time');
+                } else {
+                    const hour = Number(data.time.split(':')[0]);
+                    if (hour < 10 || hour > 23) errors.time = t('validation_time_window');
+                }
+                if (!data.guests || data.guests.trim() === '') errors.guests = t('validation_guests');
+                if (data.comment.trim().length > 220) errors.comment = t('validation_comment');
+                return errors;
+            }
+
+            function showStatus(msg, isError = false) {
+                formStatus.textContent = msg;
+                formStatus.className = 'form-status ' + (isError ? 'error-msg active' : 'success-msg active');
+            }
+
+            reserveForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                clearValidation();
+                const parsedDate = parseDateText(dateText.value) || dateHidden.value;
+                const data = {
+                    name: reserveForm.name.value,
+                    phone: reserveForm.phone.value,
+                    date: parsedDate,
+                    time: reserveForm.time.value,
+                    guests: reserveForm.guests.value,
+                    comment: reserveForm.comment.value
+                };
+                const errors = validateData(data);
+                if (Object.keys(errors).length) {
+                    Object.entries(errors).forEach(([field, msg]) => {
+                        const input = reserveForm[field];
+                        if (input) addError(input, msg);
+                    });
+                    showStatus(t('validation_fix'), true);
+                    return;
+                }
+                try {
+                    const res = await fetch('http://localhost:3000/api/reserve', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    const payload = await res.json();
+                    if (res.ok && payload.success) {
+                        reserveForm.reset();
+                        dateHint.textContent = '';
+                        successMsg.classList.add('active');
+                        showStatus(payload.message || t('reserve_sent'));
+                        setTimeout(() => {
+                            successMsg.classList.remove('active');
+                            formStatus.textContent = '';
+                            formStatus.className = 'form-status';
+                        }, 3500);
+                    } else {
+                        showStatus(payload.message || t('reserve_error'), true);
+                    }
+                } catch (err) {
+                    showStatus(t('server_unavailable'), true);
+                    console.error(err);
+                }
+            });
+
+            // ── Nav scroll effect ────────────
+            window.addEventListener('scroll', () => {
+                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+            });
+
+            console.log('%c🍖 Afzal Sergeli %c— tayyor! | готов!',
+                'font-size:1.1em;font-weight:700;color:#c8943e;', 'color:#5c4d3c;');
+        })();
+    </script>
+</body>
+</html>
