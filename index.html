@@ -272,12 +272,12 @@
       height: 100vh;
       background: var(--cream);
       z-index: 99;
-      padding: 18px 28px 36px;
+      padding: 0;
       transition: right .4s cubic-bezier(.4, 0, .2, 1);
       box-shadow: -8px 0 40px rgba(0, 0, 0, .18);
       display: flex;
       flex-direction: column;
-      gap: 0px;
+      gap: 0;
       overflow-y: auto;
       overflow-x: hidden;
     }
@@ -285,34 +285,36 @@
       right: 0;
     }
     .mobile-menu-close {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border: none;
-      background: rgba(200, 148, 62, .1);
-      border-radius: 10px;
+      background: rgba(200, 148, 62, .15);
+      border-radius: 0;
       color: var(--text);
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       cursor: pointer;
       transition: var(--trans);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      align-self: flex-end;
+      margin: 12px 20px 12px 0;
+      flex-shrink: 0;
     }
     .mobile-menu-close:active {
-      background: rgba(200, 148, 62, .2);
+      background: rgba(200, 148, 62, .25);
     }
     .mobile-menu a {
       display: block;
       text-decoration: none;
       color: var(--text);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 500;
-      letter-spacing: .06em;
-      padding: 14px 18px;
-      border-radius: var(--radius);
+      letter-spacing: .04em;
+      padding: 16px 24px;
+      border-radius: 0;
       transition: var(--trans);
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
     .mobile-menu a:hover,
     .mobile-menu a:active {
@@ -322,9 +324,11 @@
     .mobile-menu a[style*="color:var(--gold)"] {
       margin-top: auto;
       margin-bottom: 0;
-      background: rgba(200, 148, 62, .08);
-      padding: 16px 18px;
-      border-top: 1px solid rgba(200, 148, 62, .12);
+      background: rgba(200, 148, 62, .12);
+      padding: 18px 24px;
+      border-top: 1px solid rgba(200, 148, 62, .2);
+      color: var(--gold) !important;
+      font-weight: 600;
       order: 999;
     }
     .mob-overlay {
